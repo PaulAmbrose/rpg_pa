@@ -1,0 +1,13 @@
+C:\Users\PAmbrose\source\repos\rpg_pa\bin\Debug\rpg_pa.exe.config
+C:\Users\PAmbrose\source\repos\rpg_pa\bin\Debug\rpg_pa.exe
+C:\Users\PAmbrose\source\repos\rpg_pa\bin\Debug\rpg_pa.pdb
+C:\Users\PAmbrose\source\repos\rpg_pa\bin\Debug\engine.dll
+C:\Users\PAmbrose\source\repos\rpg_pa\bin\Debug\engine.pdb
+C:\Users\PAmbrose\source\repos\rpg_pa\obj\Debug\rpg_pa.csproj.AssemblyReference.cache
+C:\Users\PAmbrose\source\repos\rpg_pa\obj\Debug\rpg_pa.Properties.Resources.resources
+C:\Users\PAmbrose\source\repos\rpg_pa\obj\Debug\rpg_pa.spaceAdventureUI.resources
+C:\Users\PAmbrose\source\repos\rpg_pa\obj\Debug\rpg_pa.csproj.GenerateResource.cache
+C:\Users\PAmbrose\source\repos\rpg_pa\obj\Debug\rpg_pa.csproj.CoreCompileInputs.cache
+C:\Users\PAmbrose\source\repos\rpg_pa\obj\Debug\rpg_pa.csproj.CopyComplete
+C:\Users\PAmbrose\source\repos\rpg_pa\obj\Debug\rpg_pa.exe
+C:\Users\PAmbrose\source\repos\rpg_pa\obj\Debug\rpg_pa.pdb

@@ -1,4 +1,4 @@
-Game Design:
+Game Des
 
 In a space station.
 Walk around trying to find the escape capsule.

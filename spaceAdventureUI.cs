@@ -8,23 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using engine;
+using static engine.configStatic;
 
 namespace rpg_pa
 {
     public partial class spaceAdventureUI : Form
     {
-
-        //Transfer this to a static method
-        /*
-        string[,] locations = new string[,]
-        {
-            { "Transporter room", "Observation Deck", "Brig" },
-            { "Start", "Corridor", "Escapecapsule" },
-            { "Ready room", "Bridge", "Cargo Hold" }
-        };
-        int xCoordinate = 1;
-        int yCoordinate = 0;
-        */
 
         Player myPlayer = new Player(locations[xCoordinate, yCoordinate], 100);
 
@@ -37,40 +26,63 @@ namespace rpg_pa
 
         private void forwards_Click(object sender, EventArgs e)
         {
-            output.Text = "moving forwards\r\n";
-            yCoordinate++;
-            GameActions();
+            output.Text = "Moving forwards...\r\n\r\n";
+            int cameFromX = xCoordinate;
+            int cameFromY = yCoordinate;
+            int moveTooX = xCoordinate;
+            int moveTooY = yCoordinate++;
+            GameActions(moveTooX, moveTooY, cameFromX, cameFromY);
         }
 
         private void left_Click(object sender, EventArgs e)
         {
-            output.Text = "moving left\r\n";
-            xCoordinate--;
-            GameActions();
+            output.Text = "Moving left...\r\n\r\n";
+            int cameFromX = xCoordinate;
+            int cameFromY = yCoordinate;
+            int moveTooX = xCoordinate--;
+            int moveTooY = yCoordinate;
+            GameActions(moveTooX, moveTooY, cameFromX, cameFromY);
         }
 
         private void right_Click(object sender, EventArgs e)
         {
-            output.Text = "moving right\r\n";
-            xCoordinate++;
-            GameActions();
+            output.Text = "Moving right...\r\n\r\n";
+            int cameFromX = xCoordinate;
+            int cameFromY = yCoordinate;
+            int moveTooX = xCoordinate++;
+            int moveTooY = yCoordinate;
+            GameActions(moveTooX, moveTooY, cameFromX, cameFromY);
         }
 
         private void backwards_Click(object sender, EventArgs e)
         {
-            output.Text = "moving backwards\r\n";
-            yCoordinate--;
-            GameActions();
+            output.Text = "Moving backwards...\r\n\r\n";
+            int cameFromX = xCoordinate;
+            int cameFromY = yCoordinate;
+            int moveTooX = xCoordinate;
+            int moveTooY = yCoordinate--;
+
+            GameActions(moveTooX, moveTooY, cameFromX, cameFromY);
         }
 
-        private void GameActions(){
+        private void GameActions(int moveTooX, int moveTooY, int cameFromX, int cameFromY){
 
             myPlayer.OxygenLevel -= 10;
             oxygen_Level_Box.Text = myPlayer.OxygenLevel.ToString();
 
-            myPlayer.Location = locations[xCoordinate, yCoordinate];
-            output.Text += "Your new location is " + myPlayer.Location + "\r\n";
-
+           
+                bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
+            if (limitsCheck == true)
+            {
+                myPlayer.Location = locations[moveTooX, moveTooY];
+                output.Text += "Your new location is " + myPlayer.Location + "\r\n\r\n";
+            }
+            else
+            {
+                myPlayer.Location = locations[cameFromX, cameFromY];
+                output.Text += "You have hit a wall, please try again. You are at:  " + myPlayer.Location + "\r\n\r\n";
+            }
+            
             if (myPlayer.OxygenLevel == 0){
                 Environment.Exit(0);
             }

@@ -27,61 +27,76 @@ namespace rpg_pa
         private void forwards_Click(object sender, EventArgs e)
         {
             output.Text = "Moving forwards...\r\n\r\n";
-            int cameFromX = xCoordinate;
-            int cameFromY = yCoordinate;
-            int moveTooX = xCoordinate;
-            int moveTooY = yCoordinate++;
-            GameActions(moveTooX, moveTooY, cameFromX, cameFromY);
+
+            yCoordinate++;
+                bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
+                    if (limitsCheck == true)
+                    {
+                        output.Text = "You have moved into  " + locations[xCoordinate, yCoordinate];
+                    }
+                    else 
+                    {
+                        yCoordinate--;
+                        output.Text = "You have hit a wall.  Try again, your location is - " + locations[xCoordinate, yCoordinate];
+                    }
+                GameActions();
         }
 
         private void left_Click(object sender, EventArgs e)
         {
             output.Text = "Moving left...\r\n\r\n";
-            int cameFromX = xCoordinate;
-            int cameFromY = yCoordinate;
-            int moveTooX = xCoordinate--;
-            int moveTooY = yCoordinate;
-            GameActions(moveTooX, moveTooY, cameFromX, cameFromY);
+            xCoordinate--;
+                bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
+                    if (limitsCheck == true)
+                    {
+                        output.Text = "You have moved into  " + locations[xCoordinate, yCoordinate];
+                    }
+                    else
+                    {
+                        xCoordinate++;
+                        output.Text = "You have hit a wall.  Try again, your location is - " + locations[xCoordinate, yCoordinate];
+                    }
+                    GameActions();
         }
 
         private void right_Click(object sender, EventArgs e)
         {
             output.Text = "Moving right...\r\n\r\n";
-            int cameFromX = xCoordinate;
-            int cameFromY = yCoordinate;
-            int moveTooX = xCoordinate++;
-            int moveTooY = yCoordinate;
-            GameActions(moveTooX, moveTooY, cameFromX, cameFromY);
+            xCoordinate++;
+                bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
+                    if (limitsCheck == true)
+                    {
+                        output.Text = "You have moved into  " + locations[xCoordinate, yCoordinate];
+                    }
+                    else
+                    {
+                        xCoordinate--;
+                        output.Text = "You have hit a wall.  Try again, your location is - " + locations[xCoordinate, yCoordinate];
+                    }
+            GameActions();
         }
 
         private void backwards_Click(object sender, EventArgs e)
         {
             output.Text = "Moving backwards...\r\n\r\n";
-            int cameFromX = xCoordinate;
-            int cameFromY = yCoordinate;
-            int moveTooX = xCoordinate;
-            int moveTooY = yCoordinate--;
-
-            GameActions(moveTooX, moveTooY, cameFromX, cameFromY);
+            yCoordinate--;
+                bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
+                    if (limitsCheck == true)
+                    {
+                        output.Text = "You have moved into  " + locations[xCoordinate, yCoordinate];
+                    }
+                    else
+                    {
+                        yCoordinate++;
+                        output.Text = "You have hit a wall.  Try again, your location is - " + locations[xCoordinate, yCoordinate];
+                    }
+            GameActions();
         }
 
-        private void GameActions(int moveTooX, int moveTooY, int cameFromX, int cameFromY){
+        private void GameActions(){
 
             myPlayer.OxygenLevel -= 10;
             oxygen_Level_Box.Text = myPlayer.OxygenLevel.ToString();
-
-           
-                bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
-            if (limitsCheck == true)
-            {
-                myPlayer.Location = locations[moveTooX, moveTooY];
-                output.Text += "Your new location is " + myPlayer.Location + "\r\n\r\n";
-            }
-            else
-            {
-                myPlayer.Location = locations[cameFromX, cameFromY];
-                output.Text += "You have hit a wall, please try again. You are at:  " + myPlayer.Location + "\r\n\r\n";
-            }
             
             if (myPlayer.OxygenLevel == 0){
                 Environment.Exit(0);

@@ -1,16 +1,18 @@
 Game Des
 
-In a space station.
-Walk around trying to find the escape capsule.
-As you move room to room you get a message telling you what is in the room
-Each room has a code you will need to use to get through, you have a list of codes you can chooose from
-Each turn you take you lose 10% oxygen
+DONE - In a space station.
+DONE - Walk around trying to find the escape capsule.
+DONE - As you move room to room you get a message telling you what is in the room
+DONE - Each turn you take you lose 10% oxygen
+There are aliens in random rooms
+You must destroy the aliens by out rolling them three times.  Any time you lose you lose 10% suit integrity.
+
 
 Rooms:
 
-Transporter room(code132) - Observation Deck(code145)   Brig(code312)
-Start                     - Coridoor		  -         Escapecapsule(code354)
-Ready room(code133)       - Bridge(code415)   -         Cargo Hold(code354)
+Transporter room	- Observation Deck  - Brig
+Start               - Coridoor			- Escapecapsule
+Ready room	        - Bridge			- Cargo Hold
 
   0,0 - 1,0 - 2,0
   0,1 - 1,1 - 2,1

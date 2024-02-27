@@ -15,12 +15,16 @@ namespace rpg_pa
     public partial class spaceAdventureUI : Form
     {
 
-        Player myPlayer = new Player(locations[xCoordinate, yCoordinate], 100);
+        Player myPlayer = new Player(locations[xCoordinate, yCoordinate], 100, 100);
 
         public spaceAdventureUI()
         {
             InitializeComponent();
             oxygen_Level_Box.Text = myPlayer.OxygenLevel.ToString();
+            suitIntegrityBox.Text = myPlayer.SuitIntegrity.ToString();
+
+            generateAliens();
+
             output.Text = "Your current location is " + locations[xCoordinate, yCoordinate];
         }
 
@@ -32,12 +36,12 @@ namespace rpg_pa
                 bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
                     if (limitsCheck == true)
                     {
-                        output.Text = "You have moved into  " + locations[xCoordinate, yCoordinate];
+                        outputSuccess();
                     }
                     else 
                     {
                         yCoordinate--;
-                        output.Text = "You have hit a wall.  Try again, your location is - " + locations[xCoordinate, yCoordinate];
+                        outputFailure();
                     }
                 GameActions();
         }
@@ -49,12 +53,12 @@ namespace rpg_pa
                 bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
                     if (limitsCheck == true)
                     {
-                        output.Text = "You have moved into  " + locations[xCoordinate, yCoordinate];
-                    }
+                        outputSuccess();
+                     }
                     else
                     {
                         xCoordinate++;
-                        output.Text = "You have hit a wall.  Try again, your location is - " + locations[xCoordinate, yCoordinate];
+                        outputFailure();
                     }
                     GameActions();
         }
@@ -66,13 +70,13 @@ namespace rpg_pa
                 bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
                     if (limitsCheck == true)
                     {
-                        output.Text = "You have moved into  " + locations[xCoordinate, yCoordinate];
-                    }
+                       outputSuccess();
+                     }
                     else
                     {
                         xCoordinate--;
-                        output.Text = "You have hit a wall.  Try again, your location is - " + locations[xCoordinate, yCoordinate];
-                    }
+                        outputFailure();
+            }
             GameActions();
         }
 
@@ -83,26 +87,42 @@ namespace rpg_pa
                 bool limitsCheck = IsWithinLimits(locations, xCoordinate, yCoordinate);
                     if (limitsCheck == true)
                     {
-                        output.Text = "You have moved into  " + locations[xCoordinate, yCoordinate];
+                        outputSuccess();
                     }
                     else
                     {
                         yCoordinate++;
-                        output.Text = "You have hit a wall.  Try again, your location is - " + locations[xCoordinate, yCoordinate];
+                        outputFailure();
                     }
             GameActions();
         }
 
-        private void GameActions(){
+        private void GameActions()
+        {
 
             myPlayer.OxygenLevel -= 10;
             oxygen_Level_Box.Text = myPlayer.OxygenLevel.ToString();
-            
-            if (myPlayer.OxygenLevel == 0){
+
+                bool alienInRoom = checkIfAlienPresent(xCoordinate, yCoordinate);
+                if (alienInRoom == true)
+                {output.Text = output.Text + "\r\n\r\nALIEN IN ROOM!"; }
+
+            if (myPlayer.OxygenLevel == 0)
+            {
                 Environment.Exit(0);
             }
 
         }
+        private void outputSuccess() {
+            output.Text = "You have moved into  " + locations[xCoordinate, yCoordinate];
+        }
+
+        private void outputFailure() {
+            output.Text = "You have hit a wall.  Try again, your location is - " + locations[xCoordinate, yCoordinate];
+        }
+
+
+
 
         private void oxygen_Level_Box_TextChanged(object sender, EventArgs e)
         {

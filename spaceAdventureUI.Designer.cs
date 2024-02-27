@@ -36,6 +36,8 @@ namespace rpg_pa
             this.output = new System.Windows.Forms.TextBox();
             this.Oxygen = new System.Windows.Forms.Label();
             this.oxygen_Level_Box = new System.Windows.Forms.TextBox();
+            this.suitIntegrity = new System.Windows.Forms.Label();
+            this.suitIntegrityBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // forwards
@@ -103,11 +105,29 @@ namespace rpg_pa
             this.oxygen_Level_Box.TabIndex = 7;
             this.oxygen_Level_Box.TextChanged += new System.EventHandler(this.oxygen_Level_Box_TextChanged);
             // 
+            // suitIntegrity
+            // 
+            this.suitIntegrity.AutoSize = true;
+            this.suitIntegrity.Location = new System.Drawing.Point(23, 315);
+            this.suitIntegrity.Name = "suitIntegrity";
+            this.suitIntegrity.Size = new System.Drawing.Size(65, 13);
+            this.suitIntegrity.TabIndex = 8;
+            this.suitIntegrity.Text = "Suit Integrity";
+            // 
+            // suitIntegrityBox
+            // 
+            this.suitIntegrityBox.Location = new System.Drawing.Point(107, 308);
+            this.suitIntegrityBox.Name = "suitIntegrityBox";
+            this.suitIntegrityBox.Size = new System.Drawing.Size(40, 20);
+            this.suitIntegrityBox.TabIndex = 9;
+            // 
             // spaceAdventureUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 370);
+            this.Controls.Add(this.suitIntegrityBox);
+            this.Controls.Add(this.suitIntegrity);
             this.Controls.Add(this.oxygen_Level_Box);
             this.Controls.Add(this.Oxygen);
             this.Controls.Add(this.output);
@@ -131,6 +151,8 @@ namespace rpg_pa
         private System.Windows.Forms.TextBox output;
         private System.Windows.Forms.Label Oxygen;
         private System.Windows.Forms.TextBox oxygen_Level_Box;
+        private System.Windows.Forms.Label suitIntegrity;
+        private System.Windows.Forms.TextBox suitIntegrityBox;
     }
 }
 

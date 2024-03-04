@@ -38,6 +38,7 @@ namespace rpg_pa
             this.oxygen_Level_Box = new System.Windows.Forms.TextBox();
             this.suitIntegrity = new System.Windows.Forms.Label();
             this.suitIntegrityBox = new System.Windows.Forms.TextBox();
+            this.shoot = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // forwards
@@ -121,11 +122,22 @@ namespace rpg_pa
             this.suitIntegrityBox.Size = new System.Drawing.Size(40, 20);
             this.suitIntegrityBox.TabIndex = 9;
             // 
+            // shoot
+            // 
+            this.shoot.Location = new System.Drawing.Point(580, 284);
+            this.shoot.Name = "shoot";
+            this.shoot.Size = new System.Drawing.Size(80, 72);
+            this.shoot.TabIndex = 10;
+            this.shoot.Text = "Fire!";
+            this.shoot.UseVisualStyleBackColor = true;
+            this.shoot.Click += new System.EventHandler(this.shoot_Click);
+            // 
             // spaceAdventureUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(755, 370);
+            this.Controls.Add(this.shoot);
             this.Controls.Add(this.suitIntegrityBox);
             this.Controls.Add(this.suitIntegrity);
             this.Controls.Add(this.oxygen_Level_Box);
@@ -153,6 +165,7 @@ namespace rpg_pa
         private System.Windows.Forms.TextBox oxygen_Level_Box;
         private System.Windows.Forms.Label suitIntegrity;
         private System.Windows.Forms.TextBox suitIntegrityBox;
+        private System.Windows.Forms.Button shoot;
     }
 }
 

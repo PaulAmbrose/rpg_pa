@@ -4,8 +4,12 @@ DONE - In a space station.
 DONE - Walk around trying to find the escape capsule.
 DONE - As you move room to room you get a message telling you what is in the room
 DONE - Each turn you take you lose 10% oxygen
-There are aliens in random rooms
+DONE - There are aliens in random rooms
 You must destroy the aliens by out rolling them three times.  Any time you lose you lose 10% suit integrity.
+
+NEXT STEP
+//////////////
+instantiate alien object from an alien class on map creation along with space suit integrity value
 
 
 Rooms:

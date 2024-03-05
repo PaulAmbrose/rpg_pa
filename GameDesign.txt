@@ -7,17 +7,8 @@ DONE - Each turn you take you lose 10% oxygen
 DONE - There are aliens in random rooms
 You must destroy the aliens by out rolling them three times.  Any time you lose you lose 10% suit integrity.
 
-NEXT STEP
-//////////////
-instantiate alien object from an alien class on map creation along with space suit integrity value
-
-
 Rooms:
 
 Transporter room	- Observation Deck  - Brig
 Start               - Coridoor			- Escapecapsule
 Ready room	        - Bridge			- Cargo Hold
-
-  0,0 - 1,0 - 2,0
-  0,1 - 1,1 - 2,1
-  0,2 - 1,2 - 2,2

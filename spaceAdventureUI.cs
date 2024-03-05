@@ -142,15 +142,21 @@ namespace rpg_pa
         {
             if (alienInRoom == true)
             {
-                //Yes
-                    //Fight
-                        //Update space suit integrity by 1 for loser
-                            //Is alien space suit intergrity 0?
-                                //confirm alien destroyed and remove from display and config map
-                            //If not pass
-                            //Is player space suit integrity 0?
-                                //end game
-                            //if not pass    
+                Alien newAlien = new Alien(10);
+                    bool fightResult = alienFight();
+                        if (fightResult == true)
+                            {
+                            newAlien.SuitIntegrity -= 20;
+                            if (newAlien.SuitIntegrity == 0) 
+                                {
+                                    output.Text = output.Text + "\r\n\r\nALIEN IN ROOM HAS BEEN DESTROYED";
+                                     removeAlienFromGrid(AlienLocations, xCoordinate, yCoordinate);
+                                }
+                }
+                        else 
+                            {
+                              myPlayer.SuitIntegrity -= 20;
+                            }    
             }
             else
             {

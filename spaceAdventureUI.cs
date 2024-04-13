@@ -16,6 +16,7 @@ namespace rpg_pa
     {
 
         Player myPlayer = new Player(locations[xCoordinate, yCoordinate], 1000, 100);
+        private bool alienInRoom;
 
         public spaceAdventureUI()
         {
@@ -139,34 +140,28 @@ namespace rpg_pa
 
         public void shoot_Click(object sender, EventArgs e)
         {
-            bool alienInRoom = checkIfAlienPresent(xCoordinate, yCoordinate);
-                    
-            Alien newAlien = new Alien(50);
-            bool inAFightFlag = true;
-            do
+            if (alienInRoom == true)
             {
-                bool fightResult = alienFight();
-                if (fightResult == true)
-                {
-                    newAlien.SuitIntegrity -= 20;
-                    output.Text = "ALIEN HIT! Strengh = " + newAlien.SuitIntegrity.ToString();
-                    if (newAlien.SuitIntegrity == 0)
-                    {
-                        output.Text = output.Text + "\r\n\r\nALIEN IN ROOM HAS BEEN DESTROYED";
-                        removeAlienFromGrid(AlienLocations, xCoordinate, yCoordinate);
-                        inAFightFlag = false;
-                    }
-                    }
-                else
-                    {
-                        myPlayer.SuitIntegrity -= 20;
-                        suitIntegrityBox.Text = myPlayer.SuitIntegrity.ToString();
-                    if (myPlayer.SuitIntegrity == 0)
-                    {
-                        output.Text = output.Text + "\r\n\r\nALIEN HAS DESTROYED YOU";
-                    }
-                    }
-            } while (inAFightFlag == true);
+                Alien newAlien = new Alien(10);
+                    bool fightResult = alienFight();
+                        if (fightResult == true)
+                            {
+                            newAlien.SuitIntegrity -= 20;
+                            if (newAlien.SuitIntegrity == 0) 
+                                {
+                                    output.Text = output.Text + "\r\n\r\nALIEN IN ROOM HAS BEEN DESTROYED";
+                                     removeAlienFromGrid(AlienLocations, xCoordinate, yCoordinate);
+                                }
+                }
+                        else 
+                            {
+                              myPlayer.SuitIntegrity -= 20;
+                            }    
+            }
+            else
+            {
+                //pass
+            }
         }
     }
 }
